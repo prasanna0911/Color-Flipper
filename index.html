@@ -1,0 +1,34 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="header">
+		<h2>Color Flipper</h2>
+		<span id="color">#FFFFFF</span>
+	</div>
+	<div id="wrap">
+		<button id="btn">Click Here</button>
+	</div>
+<script>
+	let colorcode=document.getElementById('color')
+	let button=document.getElementById("btn")
+	let bg=document.getElementById("wrap")
+	let hex=[0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F']
+	function hexRandom(){
+		let Random=Math.floor(Math.random()*16)		
+		return hex[Random]
+	}
+	button.addEventListener("click",changebg)
+	function changebg(){
+		let changeColor="#"
+		for (let i=1;i<=6;i++){
+			hexRandom()			
+			changeColor+=hexRandom()
+		}
+		bg.style.backgroundColor=changeColor
+		colorcode.innerHTML=changeColor
+	}
+</script>
+</body>
+</html>
